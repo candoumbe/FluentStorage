@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
+    <PackageReference Include="LogMagic" Version="2.17.5" />
+    <PackageReference Include="Config.Net" Version="4.14.20" />
+    <PackageReference Include="Moq" Version="4.18.4" />
+    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="FluentAssertions" Version="6.11.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5" />
+    <PackageReference Include="TestContainers.RabbitMq" Version="3.1.0" />
+    <PackageReference Include="Bogus" Version="34.0.2" />
+    <PackageReference Include="Xunit.Extensions.AssemblyFixture" Version="2.4.1" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\FluentStorage.RabbitMQ\FluentStorage.RabbitMQ.csproj" />
+  </ItemGroup>
+
+</Project>
