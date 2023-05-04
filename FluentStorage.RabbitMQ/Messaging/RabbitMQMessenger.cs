@@ -10,20 +10,19 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace FluentStorage.RabbitMQ.Messaging {
-	class RabbitMQMessenger : IRabbitMQMessenger {
+	class RabbitMqMessenger : IRabbitMqMessenger {
 
 		private readonly IConnection _connection;
 		private readonly ConcurrentDictionary<string, (AsyncEventingBasicConsumer Consumer, AsyncEventHandler<BasicDeliverEventArgs> Handler, ISet<IMessageProcessor> Processors)> _declaredConsumers;
 
-
 		/// <summary>
-		/// Builds a new <see cref="RabbitMQMessenger"/> instance
+		/// Builds a new <see cref="RabbitMqMessenger"/> instance
 		/// </summary>
 		/// <param name="hostname">hotstname of the rabbit mq</param>
 		/// <param name="port">Port used to connect to the RabbitMQ server</param>
 		/// <param name="username"></param>
 		/// <param name="password"></param>
-		public RabbitMQMessenger(string hostname, int port, string username, string password) {
+		public RabbitMqMessenger(string hostname, int port, string username, string password) {
 			ConnectionFactory connectionFactory = new() {
 				HostName = hostname,
 				Port = port,

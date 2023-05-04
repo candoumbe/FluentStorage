@@ -12,6 +12,8 @@ namespace FluentStorage.RabbitMQ.Tests.Messaging {
 		private readonly static Faker _faker = new();
 		private readonly RabbitMqContainer _rabbitMq;
 
+		public RabbitMqContainer Container => _rabbitMq;
+
 		public RabbitMqFixture() {
 			_rabbitMq = new RabbitMqBuilder()
 				.WithUsername(_faker.Internet.UserName())

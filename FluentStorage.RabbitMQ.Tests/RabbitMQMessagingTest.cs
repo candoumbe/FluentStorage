@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 
+using FluentStorage.ConnectionString;
 using FluentStorage.Messaging;
 
 using Moq;
@@ -16,7 +17,7 @@ using Xunit.Extensions.AssemblyFixture;
 namespace FluentStorage.RabbitMQ.Tests.Messaging {
 
 
-	public class RabbitMQMessagingTest : IAssemblyFixture<RabbitMqFixture>, IAsyncLifetime {
+	public class RabbitMQMessagingTest : IClassFixture<RabbitMqFixture>, IAsyncLifetime {
 		private IMessenger _sut;
 		private readonly RabbitMqFixture _rabbitMqFixture;
 
@@ -25,15 +26,17 @@ namespace FluentStorage.RabbitMQ.Tests.Messaging {
 		}
 
 		///<inheritdoc/>
-		public async Task DisposeAsync() {
+		public Task DisposeAsync() {
 
 			_sut.Dispose();
+
+			return Task.CompletedTask;
 		}
 
 		///<inheritdoc/>
 		public async Task InitializeAsync() {
 			await _rabbitMqFixture.InitializeAsync().ConfigureAwait(false);
-			_sut = StorageFactory.Messages.UseRabbitMQ($"rabbitmq://{_rabbitMqFixture.GetConnectionString()}");
+			_sut = StorageFactory.Messages.RabbitMq(new StorageConnectionString($"rabbitmq://{_rabbitMqFixture.Container.GetConnectionString()}"));
 		}
 
 		[Fact]

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyTitle>FluentStorage.RabbitMQ</AssemblyTitle>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net50;net60</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net50;net60;net7.0</TargetFrameworks>
     <AssemblyName>FluentStorage.RabbitMQ</AssemblyName>
     <PackageId>FluentStorage.RabbitMQ</PackageId>
     <Description>Extension to FluentStorage providing integration with RabbitMQ messaging.</Description>
